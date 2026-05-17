@@ -293,7 +293,7 @@
             </div>
             <div class="maquette-viewer">
               <div class="maquette-frame active" id="maq2-accueil">
-                <img src="viclothes_accueil_v2.svg" alt="Maquette V2 Accueil">
+                <img src="viclothes_accueil_v2.svg" alt="Maquette V2 Accueil" onerror="this.src='viclothes_accueil_v2_.svg'">
               </div>
               <div class="maquette-frame" id="maq2-vetements">
                 <img src="viclothes_vetements_v2.svg" alt="Maquette V2 Vêtements">
@@ -353,9 +353,15 @@
       el.classList.add('active');
     }
     function showMaquette(page, el) {
-      document.querySelectorAll('.maquette-frame').forEach(f => f.classList.remove('active'));
-      document.querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('#maq-accueil, #maq-vetements, #maq-contact, #maq-apropos').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
       document.getElementById('maq-' + page).classList.add('active');
+      el.classList.add('active');
+    }
+    function showMaquette2(page, el) {
+      document.querySelectorAll('#maq2-accueil, #maq2-vetements').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('maq2-' + page).classList.add('active');
       el.classList.add('active');
     }
   </script>
