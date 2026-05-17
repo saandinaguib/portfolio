@@ -10,11 +10,7 @@
     body { font-family: 'Inter', sans-serif; background: #1a1a1a; color: #e8e8e8; font-size: 14px; line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
 
-    header {
-      background: #111; border-bottom: 1px solid #2a2a2a;
-      padding: 16px 32px; display: flex; align-items: center; gap: 20px;
-      position: sticky; top: 0; z-index: 100;
-    }
+    header { background: #111; border-bottom: 1px solid #2a2a2a; padding: 16px 32px; display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 100; }
     .header-avatar { width: 52px; height: 52px; border-radius: 50%; background: #2a2a2a; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
     .header-info { flex: 1; }
     .header-info h1 { font-size: 14px; font-weight: 600; color: #fff; }
@@ -56,8 +52,8 @@
     .journal-body p { font-size: 12px; color: #888; line-height: 1.8; }
     .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
     .tag { font-size: 10px; color: #555; border: 1px solid #2a2a2a; padding: 2px 8px; border-radius: 3px; }
+    .tag.off { color: #445; border-color: #222; }
 
-    /* LIVRABLES */
     .livrables { display: flex; flex-direction: column; gap: 10px; }
     .livrable { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px; padding: 18px 22px; }
     .livrable.pending { opacity: 0.35; }
@@ -66,7 +62,6 @@
     .livrable p { font-size: 12px; color: #888; line-height: 1.7; margin-bottom: 14px; }
     .livrable .badge { font-size: 10px; color: #888; background: #252525; padding: 3px 10px; border-radius: 20px; white-space: nowrap; border: 1px solid #2a2a2a; flex-shrink: 0; }
 
-    /* MAQUETTE VIEWER */
     .maquette-tabs { display: flex; gap: 0; border-bottom: 1px solid #2a2a2a; margin-bottom: 16px; }
     .maquette-tab { font-size: 11px; color: #666; padding: 8px 16px; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; }
     .maquette-tab.active { color: #ccc; border-bottom-color: #ccc; }
@@ -205,38 +200,52 @@
       <div class="section">
         <div class="section-title">Journal de stage — Semaine 1</div>
         <div class="journal">
+
           <div class="journal-item">
-            <div class="journal-day">Lundi 12 mai 2026</div>
+            <div class="journal-day">Lundi 12 mai</div>
             <div class="journal-body">
-              <h4>Analyse du besoin client & recherche d'inspiration</h4>
-              <p>Prise de contact avec le maître de stage, analyse de l'activité de VI CLOTHES (vente de vêtements en ligne). Recherche d'inspirations pour la maquette du site vitrine, étude de sites e-commerce similaires afin de définir une direction graphique cohérente.</p>
-              <div class="tags"><span class="tag">Analyse</span><span class="tag">E-commerce</span><span class="tag">Recherche</span></div>
+              <h4>Analyse du besoin & maquette V1</h4>
+              <p>Analyse de l'activité de VI CLOTHES et recherche d'inspirations pour le site. Réalisation de la maquette V1 sur Figma : 4 pages (Accueil, Vêtements, Contact, À propos), charte graphique noir/blanc/gris, navbar logo centré, hero en bannière pleine largeur.</p>
+              <div class="tags"><span class="tag">Analyse</span><span class="tag">Figma</span><span class="tag">Maquette V1</span></div>
             </div>
           </div>
+
           <div class="journal-item">
-            <div class="journal-day">Mardi 13 mai 2026</div>
+            <div class="journal-day">Mardi 13 mai</div>
             <div class="journal-body">
-              <h4>Création de la maquette V1 — Figma</h4>
-              <p>Réalisation de la maquette V1 du site vitrine VI CLOTHES sur Figma. Conception des 4 pages : Accueil, Vêtements, Contact, À propos. Charte graphique noir/blanc/gris.</p>
-              <div class="tags"><span class="tag">Figma</span><span class="tag">Maquette V1</span><span class="tag">UI/UX</span></div>
+              <h4>Maquette V2</h4>
+              <p>Révision de la V1 suite aux retours : amélioration de la mise en page, des espacements et des composants. Finalisation de la charte graphique avant le développement.</p>
+              <div class="tags"><span class="tag">Figma</span><span class="tag">Maquette V2</span><span class="tag">Révision</span></div>
             </div>
           </div>
+
           <div class="journal-item">
-            <div class="journal-day">Mercredi 14 mai 2026</div>
+            <div class="journal-day">Mercredi 14 mai</div>
             <div class="journal-body">
-              <h4>Finalisation et ajustements de la maquette</h4>
-              <p>Révision de la maquette V1 : repositionnement du logo au centre de la navbar, ajustement typographie, hero en bannière pleine largeur avec texte superposé. Export SVG.</p>
-              <div class="tags"><span class="tag">Figma</span><span class="tag">Révision</span><span class="tag">SVG</span></div>
+              <h4>Mise en ligne du portfolio</h4>
+              <p>Création et mise en ligne du portfolio de stage sur GitHub Pages. Intégration des maquettes V1 et V2 dans le portfolio.</p>
+              <div class="tags"><span class="tag">GitHub Pages</span><span class="tag">Portfolio</span><span class="tag">HTML/CSS</span></div>
             </div>
           </div>
+
           <div class="journal-item">
-            <div class="journal-day">Vendredi 16 mai 2026</div>
+            <div class="journal-day">Jeudi 15 mai</div>
             <div class="journal-body">
-              <h4>Bilan semaine 1 & mise en place du portfolio</h4>
-              <p>Bilan de la semaine : maquette V1 finalisée. Mise en place du portfolio de stage accessible via GitHub Pages.</p>
-              <div class="tags"><span class="tag">Bilan</span><span class="tag">Portfolio</span><span class="tag">GitHub Pages</span></div>
+              <h4>Férié — Ascension</h4>
+              <p>Journée fériée.</p>
+              <div class="tags"><span class="tag off">Férié</span></div>
             </div>
           </div>
+
+          <div class="journal-item">
+            <div class="journal-day">Vendredi 16 mai</div>
+            <div class="journal-body">
+              <h4>Bilan de la semaine</h4>
+              <p>Bilan de la semaine 1 : maquettes V1 et V2 réalisées, portfolio en ligne. Préparation du développement HTML/CSS/PHP pour la semaine suivante.</p>
+              <div class="tags"><span class="tag">Bilan</span><span class="tag">Semaine 1</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -244,15 +253,12 @@
         <div class="section-title">Livrables</div>
         <div class="livrables">
 
-          <!-- LIVRABLE V1 avec viewer -->
           <div class="livrable">
             <div class="livrable-header">
               <h4>Maquette site vitrine VI CLOTHES — V1</h4>
-              <span class="badge">12–14 mai 2026</span>
+              <span class="badge">12 mai 2026</span>
             </div>
-            <p>Maquette complète réalisée sur Figma. 4 pages : Accueil, Vêtements, Contact, À propos. Charte graphique noir/blanc/gris, navbar logo centré, hero bannière pleine largeur.</p>
-
-            <!-- TABS maquette -->
+            <p>Maquette réalisée sur Figma. 4 pages : Accueil, Vêtements, Contact, À propos. Charte graphique noir/blanc/gris, hero bannière pleine largeur.</p>
             <div class="maquette-tabs">
               <button class="maquette-tab active" onclick="showMaquette('accueil', this)">Accueil</button>
               <button class="maquette-tab" onclick="showMaquette('vetements', this)">Vêtements</button>
@@ -277,10 +283,18 @@
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Maquette V2 — À venir</h4>
-              <span class="badge">Semaine 2</span>
+              <h4>Maquette site vitrine VI CLOTHES — V2</h4>
+              <span class="badge">13 mai 2026</span>
             </div>
-            <p>Modifications et améliorations de la V1 suite aux retours.</p>
+            <p>Révision de la V1 : améliorations de la mise en page et des composants. Version finale avant développement.</p>
+          </div>
+
+          <div class="livrable pending">
+            <div class="livrable-header">
+              <h4>Site vitrine HTML/CSS/PHP</h4>
+              <span class="badge">Semaine 2+</span>
+            </div>
+            <p>Développement du site à partir de la maquette V2 validée.</p>
           </div>
 
         </div>
@@ -326,7 +340,6 @@
       document.getElementById('page-' + page).classList.add('active');
       el.classList.add('active');
     }
-
     function showMaquette(page, el) {
       document.querySelectorAll('.maquette-frame').forEach(f => f.classList.remove('active'));
       document.querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
