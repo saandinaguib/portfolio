@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naguib SAANDI — Portfolio BTS SIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0d0d0d;
+      --white: #f5f4f0;
+      --gray: #888;
+      --accent: #c8b89a;
+      --border: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      cursor: crosshair;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(8px);
+    }
+    nav .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--accent);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--gray);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'NS';
+      position: absolute;
+      top: 50%;
+      right: -40px;
+      transform: translateY(-50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: 380px;
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -1px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 480px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-meta {
+      margin-top: 48px;
+      display: flex;
+      gap: 48px;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .hero-meta div { display: flex; flex-direction: column; gap: 4px; }
+    .hero-meta .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+    .hero-meta .value {
+      font-size: 13px;
+      color: var(--white);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 96px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 200px;
+    }
+
+    /* STAGE */
+    .stage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stage-cell {
+      background: var(--black);
+      padding: 40px;
+    }
+    .stage-cell .cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .stage-cell .cell-value {
+      font-size: 16px;
+      color: var(--white);
+      line-height: 1.5;
+    }
+    .stage-cell .cell-value strong {
+      color: var(--accent);
+    }
+
+    /* JOURNAL */
+    .journal-entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .journal-entry:last-child { border-bottom: none; }
+    .journal-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--gray);
+      padding-top: 4px;
+    }
+    .journal-content h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .journal-content p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+    .journal-content .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+
+    /* LIVRABLES */
+    .livrables-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .livrable-card {
+      background: var(--black);
+      padding: 40px;
+      transition: background 0.2s;
+    }
+    .livrable-card:hover { background: #151515; }
+    .livrable-card .version {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .livrable-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .livrable-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .livrable-card .date {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--border);
+      margin-top: 24px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--accent);
+    }
+    footer p {
+      font-size: 11px;
+      color: var(--border);
+      font-family: 'DM Mono', monospace;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="logo">SAANDI_NAGUIB</span>
+    <ul>
+      <li><a href="#stage">Stage</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#livrables">Livrables</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Portfolio — BTS SIO SLAM</div>
+    <h1>Naguib<br><em>Saandi</em></h1>
+    <p class="hero-sub">Étudiant en BTS SIO option SLAM — développement web et applications. Actuellement en stage chez VI CLOTHES (Rayan LEPORI), Vénissieux.</p>
+    <div class="hero-meta">
+      <div>
+        <span class="label">Formation</span>
+        <span class="value">BTS SIO SLAM — B1</span>
+      </div>
+      <div>
+        <span class="label">Période stage</span>
+        <span class="value">11 mai → 19 juin 2026</span>
+      </div>
+      <div>
+        <span class="label">Entreprise</span>
+        <span class="value">VI CLOTHES — Vénissieux</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE -->
+  <section id="stage">
+    <div class="section-label">Stage</div>
+    <div class="stage-grid">
+      <div class="stage-cell">
+        <div class="cell-label">Entreprise</div>
+        <div class="cell-value"><strong>VI CLOTHES</strong><br>Rayan LEPORI<br>Entrepreneur individuel</div>
+      </div>
+      <div class="stage-cell">
+        <div class="cell-label">Adresse</div>
+        <div class="cell-value">2 Rue Georges Lyvet<br>69200 Vénissieux</div>
+      </div>
+      <div class="stage-cell">
+        <div class="cell-label">Contact tuteur</div>
+        <div class="cell-value">07 69 15 42 89<br>Rayanlepori@icloud.com</div>
+      </div>
+      <div class="stage-cell">
+        <div class="cell-label">Missions</div>
+        <div class="cell-value">Création d'un site vitrine<br>Formulaire HTML/CSS + PHP<br>Mise en ligne · Tests et corrections</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section id="journal">
+    <div class="section-label">Journal de stage</div>
+
+    <div class="journal-entry">
+      <div class="journal-date">Lundi 12 mai 2026</div>
+      <div class="journal-content">
+        <h3>Analyse du besoin client & recherche d'inspiration</h3>
+        <p>Prise de contact avec le maître de stage, analyse de l'activité de l'entreprise VI CLOTHES (vente de vêtements en ligne). Recherche d'inspirations pour la maquette du site vitrine, étude de sites e-commerce similaires afin de définir une direction graphique cohérente avec l'identité de la marque.</p>
+        <div class="tags">
+          <span class="tag">Analyse</span>
+          <span class="tag">E-commerce</span>
+          <span class="tag">Recherche</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journal-entry">
+      <div class="journal-date">Mardi 13 mai 2026</div>
+      <div class="journal-content">
+        <h3>Création de la maquette du site vitrine — V1</h3>
+        <p>Réalisation de la maquette V1 du site vitrine VI CLOTHES sur Figma. Conception de la structure des 4 pages principales : Accueil, Vêtements, Contact et À propos. Définition de la charte graphique : typographie, couleurs (noir #111, blanc, gris), mise en page navbar avec logo centré.</p>
+        <div class="tags">
+          <span class="tag">Figma</span>
+          <span class="tag">Maquette V1</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Charte graphique</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journal-entry">
+      <div class="journal-date">Mercredi 14 mai 2026</div>
+      <div class="journal-content">
+        <h3>Finalisation et ajustements de la maquette</h3>
+        <p>Révision et ajustements de la maquette V1 suite aux retours : repositionnement du logo au centre de la navbar, ajustement de la typographie (police grasse), modification du hero en bannière pleine largeur avec texte et bouton superposés à l'image. Export des pages en SVG pour intégration Figma.</p>
+        <div class="tags">
+          <span class="tag">Figma</span>
+          <span class="tag">Révision</span>
+          <span class="tag">SVG</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="journal-entry">
+      <div class="journal-date">Vendredi 16 mai 2026</div>
+      <div class="journal-content">
+        <h3>Bilan de la semaine & mise en place du portfolio</h3>
+        <p>Bilan de la semaine 1 : maquette V1 du site vitrine finalisée. Mise en place du portfolio de stage accessible via GitHub Pages. Préparation de la semaine 2 : développement HTML/CSS/PHP du site à partir de la maquette validée.</p>
+        <div class="tags">
+          <span class="tag">Bilan</span>
+          <span class="tag">Portfolio</span>
+          <span class="tag">GitHub Pages</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- LIVRABLES -->
+  <section id="livrables">
+    <div class="section-label">Livrables</div>
+    <div class="livrables-grid">
+      <div class="livrable-card">
+        <div class="version">V1 — Semaine 1</div>
+        <h3>Maquette site vitrine VI CLOTHES</h3>
+        <p>Maquette complète du site vitrine réalisée sur Figma. 4 pages : Accueil (bannière hero + meilleures ventes), Vêtements (grille produits), Contact (formulaire + coordonnées), À propos. Charte graphique noir/blanc/gris, navbar logo centré.</p>
+        <div class="date">12–14 mai 2026</div>
+      </div>
+      <div class="livrable-card" style="opacity:0.3;">
+        <div class="version">V2 — À venir</div>
+        <h3>Maquette révisée</h3>
+        <p>Modifications et améliorations de la V1 suite aux retours.</p>
+        <div class="date">Semaine 2</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="logo">SAANDI_NAGUIB © 2026</span>
+    <p>BTS SIO SLAM — Stage VI CLOTHES</p>
+  </footer>
+
+</body>
+</html>
