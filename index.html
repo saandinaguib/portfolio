@@ -286,17 +286,25 @@
               <h4>Maquette site vitrine VI CLOTHES — V2</h4>
               <span class="badge">12 mai 2026</span>
             </div>
-            <p>Intégration des vraies photos produits, bannière Berserk, charte graphique définitive avec images, couleurs et polices.</p>
+            <p>Intégration des vraies photos produits, bannière Berserk, charte graphique définitive avec images, couleurs et polices. Pages Contact et À propos redesignées.</p>
             <div class="maquette-tabs">
               <button class="maquette-tab active" onclick="showMaquette2('accueil', this)">Accueil</button>
               <button class="maquette-tab" onclick="showMaquette2('vetements', this)">Vêtements</button>
+              <button class="maquette-tab" onclick="showMaquette2('contact', this)">Contact</button>
+              <button class="maquette-tab" onclick="showMaquette2('apropos', this)">À propos</button>
             </div>
             <div class="maquette-viewer">
               <div class="maquette-frame active" id="maq2-accueil">
-                <img src="viclothes_accueil_v2.svg" alt="Maquette V2 Accueil" onerror="this.src='viclothes_accueil_v2_.svg'">
+                <img src="viclothes_accueil_v2.svg" alt="Maquette V2 Accueil">
               </div>
               <div class="maquette-frame" id="maq2-vetements">
                 <img src="viclothes_vetements_v2.svg" alt="Maquette V2 Vêtements">
+              </div>
+              <div class="maquette-frame" id="maq2-contact">
+                <img src="viclothes_contact_v2.svg" alt="Maquette V2 Contact">
+              </div>
+              <div class="maquette-frame" id="maq2-apropos">
+                <img src="viclothes_apropos_v2.svg" alt="Maquette V2 À propos">
               </div>
             </div>
           </div>
@@ -359,7 +367,7 @@
       el.classList.add('active');
     }
     function showMaquette2(page, el) {
-      document.querySelectorAll('#maq2-accueil, #maq2-vetements').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('#maq2-accueil, #maq2-vetements, #maq2-contact, #maq2-apropos').forEach(f => f.classList.remove('active'));
       el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
       document.getElementById('maq2-' + page).classList.add('active');
       el.classList.add('active');
