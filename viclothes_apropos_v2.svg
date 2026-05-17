@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960" width="1440" height="960" font-family="Helvetica Neue, Arial, sans-serif">
+  <rect width="1440" height="960" fill="#f5f5f5"/>
+  <!-- NAVBAR -->
+  <rect x="0" y="0" width="1440" height="55" fill="#ffffff"/>
+  <line x1="0" y1="55" x2="1440" y2="55" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="30" y="34" font-size="13" font-weight="500" fill="#111">Accueil</text>
+  <text x="110" y="34" font-size="13" font-weight="500" fill="#111">Vêtements</text>
+  <text x="720" y="30" font-size="17" font-weight="700" fill="#111" letter-spacing="4" text-anchor="middle">VI CLOTHES</text>
+  <text x="720" y="46" font-size="7" fill="#888" text-anchor="middle">•</text>
+  <rect x="960" y="16" width="145" height="28" rx="14" fill="none" stroke="#111" stroke-width="1.5"/>
+  <text x="1033" y="34" font-size="12" fill="#111" text-anchor="middle">Recherche 🔍</text>
+  <rect x="1118" y="16" width="300" height="28" rx="14" fill="#c8c8c8"/>
+  <text x="1163" y="34" font-size="12" fill="#111">Service</text>
+  <text x="1230" y="34" font-size="12" fill="#111">Contact</text>
+  <text x="1310" y="34" font-size="12" fill="#111">À propos</text>
+
+  <!-- HERO À PROPOS -->
+  <rect x="0" y="55" width="1440" height="200" fill="#111"/>
+  <text x="720" y="140" font-size="42" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="2">À PROPOS</text>
+  <text x="720" y="178" font-size="14" fill="#888" text-anchor="middle">Chez VI CLOTHES, nous croyons que le style est bien plus qu'une apparence.</text>
+  <text x="720" y="200" font-size="14" fill="#888" text-anchor="middle">Chaque pièce est sélectionnée avec soin pour allier confort, tendance et qualité.</text>
+
+  <!-- SECTION NOTRE HISTOIRE -->
+  <rect x="80" y="290" width="580" height="280" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="120" y="338" font-size="11" font-weight="600" fill="#888" letter-spacing="2">NOTRE HISTOIRE</text>
+  <line x1="120" y1="348" x2="240" y2="348" stroke="#111" stroke-width="1.5"/>
+  <text x="120" y="380" font-size="14" fill="#333">VI CLOTHES est née d'une passion pour</text>
+  <text x="120" y="400" font-size="14" fill="#333">la mode streetwear et les pièces uniques.</text>
+  <text x="120" y="435" font-size="14" fill="#555">Fondée en 2023 par Rayan LEPORI,</text>
+  <text x="120" y="455" font-size="14" fill="#555">notre boutique en ligne propose une</text>
+  <text x="120" y="475" font-size="14" fill="#555">sélection soignée de vêtements tendance</text>
+  <text x="120" y="495" font-size="14" fill="#555">pour ceux qui veulent affirmer leur style.</text>
+  <text x="120" y="530" font-size="13" fill="#888">📍  Vénissieux, 69200 — France</text>
+  <text x="120" y="552" font-size="13" fill="#888">📅  Créée le 16 février 2023</text>
+
+  <!-- SECTION NOTRE VISION -->
+  <rect x="700" y="290" width="660" height="280" rx="8" fill="#111" stroke="#111" stroke-width="1"/>
+  <text x="740" y="338" font-size="11" font-weight="600" fill="#888" letter-spacing="2">NOTRE VISION</text>
+  <line x1="740" y1="348" x2="860" y2="348" stroke="#444" stroke-width="1.5"/>
+
+  <!-- Points vision -->
+  <circle cx="752" cy="380" r="3" fill="#fff"/>
+  <text x="770" y="385" font-size="13" fill="#fff">Offrir des pièces tendance et accessibles</text>
+  <circle cx="752" cy="415" r="3" fill="#fff"/>
+  <text x="770" y="420" font-size="13" fill="#fff">Proposer une mode pour tous les styles</text>
+  <circle cx="752" cy="450" r="3" fill="#fff"/>
+  <text x="770" y="455" font-size="13" fill="#fff">Inspirer confiance à travers chaque collection</text>
+  <circle cx="752" cy="485" r="3" fill="#fff"/>
+  <text x="770" y="490" font-size="13" fill="#fff">Livraison rapide et soignée partout en France</text>
+  <circle cx="752" cy="520" r="3" fill="#fff"/>
+  <text x="770" y="525" font-size="13" fill="#fff">Service client réactif et à l'écoute</text>
+
+  <!-- 3 STATS -->
+  <rect x="80" y="610" width="400" height="130" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="280" y="655" font-size="36" font-weight="700" fill="#111" text-anchor="middle">2023</text>
+  <text x="280" y="680" font-size="11" fill="#888" text-anchor="middle" letter-spacing="2">ANNÉE DE CRÉATION</text>
+  <line x1="280" y1="698" x2="400" y2="698" stroke="#eee" stroke-width="1"/>
+  <text x="280" y="720" font-size="12" fill="#aaa" text-anchor="middle">Entrepreneur individuel</text>
+
+  <rect x="520" y="610" width="400" height="130" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="720" y="655" font-size="36" font-weight="700" fill="#111" text-anchor="middle">100%</text>
+  <text x="720" y="680" font-size="11" fill="#888" text-anchor="middle" letter-spacing="2">EN LIGNE</text>
+  <line x1="600" y1="698" x2="840" y2="698" stroke="#eee" stroke-width="1"/>
+  <text x="720" y="720" font-size="12" fill="#aaa" text-anchor="middle">Vente à distance spécialisée</text>
+
+  <rect x="960" y="610" width="400" height="130" rx="8" fill="#111" stroke="#111" stroke-width="1"/>
+  <text x="1160" y="655" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">24h</text>
+  <text x="1160" y="680" font-size="11" fill="#888" text-anchor="middle" letter-spacing="2">DÉLAI DE RÉPONSE</text>
+  <line x1="1040" y1="698" x2="1280" y2="698" stroke="#333" stroke-width="1"/>
+  <text x="1160" y="720" font-size="12" fill="#555" text-anchor="middle">Service client réactif</text>
+
+  <!-- SECTION POURQUOI NOUS CHOISIR -->
+  <rect x="80" y="780" width="1280" height="150" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="120" y="822" font-size="11" font-weight="600" fill="#888" letter-spacing="2">POURQUOI NOUS CHOISIR</text>
+  <line x1="120" y1="832" x2="340" y2="832" stroke="#111" stroke-width="1.5"/>
+  <text x="120" y="862" font-size="14" fill="#333">Choisir VI CLOTHES, c'est choisir plus qu'un vêtement. C'est affirmer un style, une personnalité</text>
+  <text x="120" y="884" font-size="14" fill="#333">et une vision de la mode. Nos collections s'adressent à ceux qui recherchent l'équilibre parfait</text>
+  <text x="120" y="906" font-size="14" fill="#555">entre tendance et confort — des pièces pensées pour durer et marquer les esprits.</text>
+
+</svg>
