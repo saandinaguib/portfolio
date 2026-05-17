@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Helvetica Neue, Arial, sans-serif">
+
+  <!-- FOND BLANC -->
+  <rect width="1440" height="900" fill="#ffffff"/>
+
+  <!-- ===== NAVBAR ===== -->
+  <rect x="0" y="0" width="1440" height="60" fill="#ffffff"/>
+  <line x1="0" y1="60" x2="1440" y2="60" stroke="#eeeeee" stroke-width="1"/>
+
+  <text x="30" y="37" font-size="12" font-weight="700" fill="#111111">Accueil</text>
+  <text x="100" y="37" font-size="12" font-weight="700" fill="#111111">Vêtements</text>
+
+  <text x="720" y="33" font-size="16" font-weight="700" fill="#111111" letter-spacing="3" text-anchor="middle">VI CLOTHES</text>
+  <text x="720" y="48" font-size="8" fill="#111111" text-anchor="middle">✦</text>
+
+  <rect x="990" y="15" width="130" height="30" rx="15" fill="none" stroke="#111111" stroke-width="2"/>
+  <text x="1055" y="35" font-size="11" font-weight="700" fill="#111111" text-anchor="middle">Recherche 🔍</text>
+
+  <rect x="1130" y="15" width="285" height="30" rx="15" fill="#bbbbbb"/>
+  <text x="1175" y="35" font-size="11" font-weight="700" fill="#111111">Service</text>
+  <text x="1245" y="35" font-size="11" font-weight="700" fill="#111111">Contact</text>
+  <text x="1325" y="35" font-size="11" font-weight="700" fill="#111111">À propos</text>
+
+  <!-- ===== TITRE ===== -->
+  <text x="80" y="130" font-size="28" font-weight="700" fill="#111111">Nous contacter</text>
+  <text x="80" y="158" font-size="13" fill="#888888">Nous écrire</text>
+
+  <!-- ===== FORMULAIRE (gauche) ===== -->
+  <!-- Sujet -->
+  <rect x="80" y="175" width="700" height="42" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="100" y="201" font-size="12" fill="#bbbbbb">Sujet *</text>
+
+  <!-- Prénom -->
+  <rect x="80" y="230" width="340" height="42" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="100" y="256" font-size="12" fill="#bbbbbb">Prénom *</text>
+
+  <!-- Nom -->
+  <rect x="440" y="230" width="340" height="42" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="460" y="256" font-size="12" fill="#bbbbbb">Nom *</text>
+
+  <!-- Email -->
+  <rect x="80" y="285" width="700" height="42" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="100" y="311" font-size="12" fill="#bbbbbb">Email *</text>
+
+  <!-- Téléphone -->
+  <rect x="80" y="340" width="700" height="42" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="100" y="366" font-size="12" fill="#bbbbbb">Téléphone *</text>
+
+  <!-- Commentaires -->
+  <rect x="80" y="395" width="700" height="120" rx="4" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="100" y="421" font-size="12" fill="#bbbbbb">Commentaires *</text>
+
+  <!-- Bouton Envoyer -->
+  <rect x="80" y="535" width="200" height="42" rx="4" fill="#111111"/>
+  <text x="180" y="561" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Envoyer</text>
+
+  <!-- ===== COORDONNÉES (droite) ===== -->
+  <!-- Adresse -->
+  <text x="900" y="250" font-size="14" fill="#333333">📍  2 Rue Georges Lyvet</text>
+  <text x="928" y="272" font-size="13" fill="#888888">69200 Vénissieux</text>
+
+  <!-- Email -->
+  <text x="900" y="320" font-size="14" fill="#333333">✉️  Rayanlepori@icloud.com</text>
+
+  <!-- Téléphone -->
+  <text x="900" y="370" font-size="14" fill="#333333">📞  07 69 15 42 89</text>
+
+  <!-- Ligne séparatrice verticale -->
+  <line x1="840" y1="100" x2="840" y2="580" stroke="#eeeeee" stroke-width="1"/>
+
+</svg>
