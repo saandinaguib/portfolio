@@ -146,7 +146,7 @@
             <div class="timeline-year">Mai 2026</div>
             <div class="timeline-content">
               <h3>Stage — VI CLOTHES</h3>
-              <p>Création d'un site vitrine pour un entrepreneur individuel spécialisé dans la vente de vêtements en ligne. Maquette Figma, développement HTML/CSS/PHP.</p>
+              <p>Création d'un site e-commerce vitrine pour un entrepreneur individuel spécialisé dans la vente de vêtements en ligne. Maquette Figma, développement HTML/CSS/PHP/JavaScript.</p>
               <em>Rayan LEPORI — Vénissieux</em>
             </div>
           </div>
@@ -200,7 +200,6 @@
       <div class="section">
         <div class="section-title">Journal de stage — Semaine 1</div>
         <div class="journal">
-
           <div class="journal-item">
             <div class="journal-day">Lundi 11 mai</div>
             <div class="journal-body">
@@ -209,7 +208,6 @@
               <div class="tags"><span class="tag">Analyse</span><span class="tag">Figma</span><span class="tag">Maquette V1</span></div>
             </div>
           </div>
-
           <div class="journal-item">
             <div class="journal-day">Mardi 12 mai</div>
             <div class="journal-body">
@@ -218,7 +216,6 @@
               <div class="tags"><span class="tag">Figma</span><span class="tag">Maquette V2</span></div>
             </div>
           </div>
-
           <div class="journal-item">
             <div class="journal-day">Mercredi 13 mai</div>
             <div class="journal-body">
@@ -227,7 +224,6 @@
               <div class="tags"><span class="tag">GitHub Pages</span><span class="tag">Portfolio</span></div>
             </div>
           </div>
-
           <div class="journal-item">
             <div class="journal-day">Jeudi 14 mai</div>
             <div class="journal-body">
@@ -236,16 +232,14 @@
               <div class="tags"><span class="tag off">Férié</span></div>
             </div>
           </div>
-
           <div class="journal-item">
             <div class="journal-day">Vendredi 15 mai</div>
             <div class="journal-body">
               <h4>Bilan de la semaine</h4>
-              <p>Bilan de la semaine 1 : maquettes V1 et V2 réalisées, portfolio en ligne. Préparation du développement HTML/CSS/PHP pour la semaine suivante.</p>
+              <p>Bilan de la semaine 1 : maquettes V1 et V2 réalisées, portfolio en ligne. Préparation du développement HTML/CSS pour la semaine suivante.</p>
               <div class="tags"><span class="tag">Bilan</span><span class="tag">Semaine 1</span></div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -255,9 +249,9 @@
           <div class="journal-item">
             <div class="journal-day">19–23 mai</div>
             <div class="journal-body">
-              <h4>Début développement HTML/CSS</h4>
-              <p>Mise en place de la structure du site : navbar, bannière, footer. Développement de la page Accueil en HTML/CSS à partir de la maquette V2 validée.</p>
-              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Accueil</span></div>
+              <h4>Développement HTML/CSS — Pages Accueil & Vêtements</h4>
+              <p>Mise en place de la structure du site en HTML/CSS à partir de la maquette V2 : navbar, bannière, footer communs aux deux pages. J'ai développé la page Accueil avec la section meilleures ventes et la page Vêtements avec la grille de produits. J'ai aussi réfléchi à comment rendre le site plus complet : j'ai ajouté un lien sur chaque carte produit qui ouvre une page dédiée avec la photo en grand, la description et le prix.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Accueil</span><span class="tag">Vêtements</span><span class="tag">Page produit</span></div>
             </div>
           </div>
         </div>
@@ -269,9 +263,9 @@
           <div class="journal-item">
             <div class="journal-day">26–30 mai</div>
             <div class="journal-body">
-              <h4>Développement des pages Vêtements, Contact et À propos</h4>
-              <p>Intégration des pages secondaires en HTML/CSS : page Vêtements avec grille produits, page Contact avec formulaire, page À propos avec présentation de l'entreprise.</p>
-              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Vêtements</span><span class="tag">Contact</span><span class="tag">À propos</span></div>
+              <h4>Pages Contact & À propos + Panier JavaScript</h4>
+              <p>Développement des pages Contact et À propos en HTML/CSS. Pour le panier, le problème était qu'on n'a pas de base de données. J'ai réfléchi et j'ai utilisé le localStorage : j'ai intégré du JavaScript qui, à chaque clic sur "Ajouter au panier", sauvegarde l'article dans la mémoire du navigateur. Comme ça, même en changeant de page, le panier garde les produits en mémoire jusqu'à la commande.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Panier</span><span class="tag">localStorage</span></div>
             </div>
           </div>
         </div>
@@ -283,9 +277,9 @@
           <div class="journal-item">
             <div class="journal-day">2–6 juin</div>
             <div class="journal-body">
-              <h4>Formulaire de contact PHP & tests</h4>
-              <p>Développement du traitement du formulaire de contact en PHP : validation des champs, envoi de mail, gestion des erreurs. Tests et corrections des pages.</p>
-              <div class="tags"><span class="tag">PHP</span><span class="tag">Formulaire</span><span class="tag">Tests</span></div>
+              <h4>Recherche JavaScript, formulaire PHP & page commande</h4>
+              <p>J'ai intégré du JavaScript dans la page Vêtements pour filtrer les produits en temps réel selon ce que l'utilisateur tape, sans recharger la page. Pour la commande, le client remplit un formulaire avec ses coordonnées et son adresse de livraison. Quand il valide, le PHP envoie immédiatement un mail à Rayan LEPORI avec le récapitulatif complet : articles, prix total et adresse. La commande est aussi sauvegardée dans le localStorage avec le statut "en_attente" avant de passer au paiement.</p>
+              <div class="tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">Recherche</span><span class="tag">Commande</span><span class="tag">Mail</span></div>
             </div>
           </div>
         </div>
@@ -297,9 +291,9 @@
           <div class="journal-item">
             <div class="journal-day">9–13 juin</div>
             <div class="journal-body">
-              <h4>Mise en ligne & tests finaux</h4>
-              <p>Déploiement du site vitrine sur l'hébergeur. Tests de compatibilité sur différents navigateurs, vérification du responsive et corrections des derniers bugs.</p>
-              <div class="tags"><span class="tag">Mise en ligne</span><span class="tag">Tests</span><span class="tag">Corrections</span></div>
+              <h4>Paiement PayPal, page récapitulatif & mise en ligne</h4>
+              <p>Quand le client clique sur "Payer", un lien le redirige vers PayPal avec le montant pré-rempli. Dans l'URL PayPal j'ai indiqué ma page confirmation.html comme adresse de retour avec le paramètre statut=success. Sur cette page, JavaScript lit l'URL avec URLSearchParams : si statut=success, le localStorage passe à "payé" et affiche un récapitulatif complet (articles, prix, adresse). Sinon il affiche "Paiement non finalisé". Ensuite mise en ligne sur GitHub Pages et tests sur différents navigateurs.</p>
+              <div class="tags"><span class="tag">PayPal</span><span class="tag">URLSearchParams</span><span class="tag">JavaScript</span><span class="tag">Récapitulatif</span><span class="tag">Mise en ligne</span></div>
             </div>
           </div>
         </div>
@@ -312,8 +306,8 @@
             <div class="journal-day">16–19 juin</div>
             <div class="journal-body">
               <h4>Bilan final & préparation oral</h4>
-              <p>Bilan général du stage, mise à jour du portfolio avec l'ensemble des livrables. Préparation de l'oral du 22 juin : organisation du support visuel et des situations professionnelles à présenter.</p>
-              <div class="tags"><span class="tag">Bilan</span><span class="tag">Portfolio</span><span class="tag">Oral</span></div>
+              <p>Dernière semaine de stage : bilan général de ce qui a été réalisé, vérification que tous les livrables sont en ligne et à jour sur le portfolio. Préparation de l'oral du 22 juin avec organisation du support visuel, sélection des situations professionnelles à présenter et relecture de l'ensemble du travail effectué depuis la semaine 1.</p>
+              <div class="tags"><span class="tag">Bilan</span><span class="tag">Portfolio</span><span class="tag">Oral</span><span class="tag">Livrables</span></div>
             </div>
           </div>
         </div>
@@ -356,7 +350,7 @@
               <h4>Maquette site vitrine VI CLOTHES — V2</h4>
               <span class="badge">12–13 mai 2026</span>
             </div>
-            <p>Intégration des vraies photos produits, bannière Berserk, charte graphique définitive. Pages Contact (formulaire détaillé + infos) et À propos (histoire, vision, stats) redesignées.</p>
+            <p>Intégration des vraies photos produits, bannière Berserk, charte graphique définitive. Pages Contact et À propos redesignées.</p>
             <div class="maquette-tabs">
               <button class="maquette-tab active" onclick="showMaquette2('accueil', this)">Accueil</button>
               <button class="maquette-tab" onclick="showMaquette2('vetements', this)">Vêtements</button>
@@ -381,34 +375,34 @@
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Site vitrine HTML/CSS — Page Accueil</h4>
+              <h4>Site HTML/CSS — Accueil & Vêtements</h4>
               <span class="badge">Semaine 2 · 19–23 mai</span>
             </div>
-            <p>Développement de la page Accueil en HTML/CSS : navbar, bannière, section meilleures ventes.</p>
+            <p>Pages Accueil et Vêtements développées en HTML/CSS. Mise en place des pages de détail produit.</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Site vitrine HTML/CSS — Pages secondaires</h4>
+              <h4>Panier JavaScript + Pages Contact & À propos</h4>
               <span class="badge">Semaine 3 · 26–30 mai</span>
             </div>
-            <p>Développement des pages Vêtements, Contact et À propos en HTML/CSS.</p>
+            <p>Panier géré via localStorage en JavaScript. Pages Contact et À propos intégrées.</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Formulaire de contact PHP</h4>
+              <h4>Formulaire PHP + Recherche JavaScript + Commande + Paiement PayPal</h4>
               <span class="badge">Semaine 4 · 2–6 juin</span>
             </div>
-            <p>Traitement du formulaire en PHP : validation, envoi mail, gestion des erreurs. Tests et corrections.</p>
+            <p>Formulaire de contact traité en PHP. Barre de recherche avec filtrage JavaScript en temps réel. Page commande avec envoi mail PHP. Bouton de paiement redirigeant vers PayPal avec montant pré-rempli.</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Mise en ligne du site</h4>
+              <h4>Paiement PayPal + Page confirmation + Mise en ligne</h4>
               <span class="badge">Semaine 5 · 9–13 juin</span>
             </div>
-            <p>Déploiement sur hébergeur, tests navigateurs, corrections finales.</p>
+            <p>Bouton PayPal avec redirection vers une page confirmation.html. Statut commande mis à jour via JavaScript selon l'URL de retour. Déploiement et tests finaux.</p>
           </div>
 
           <div class="livrable pending">
