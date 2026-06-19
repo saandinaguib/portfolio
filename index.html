@@ -291,9 +291,9 @@
           <div class="journal-item">
             <div class="journal-day">9–13 juin</div>
             <div class="journal-body">
-              <h4>Paiement PayPal, page récapitulatif & mise en ligne</h4>
-              <p>Quand le client clique sur "Payer", un lien le redirige vers PayPal avec le montant pré-rempli. Dans l'URL PayPal j'ai indiqué ma page confirmation.html comme adresse de retour avec le paramètre statut=success. Sur cette page, JavaScript lit l'URL avec URLSearchParams : si statut=success, le localStorage passe à "payé", un deuxième mail est envoyé à Rayan LEPORI avec la mention "Commande confirmée — paiement effectué", et le client voit un récapitulatif complet (articles, prix, adresse). Sinon il affiche "Paiement non finalisé". J'ai aussi créé une page "Mes commandes" : quand le client y retourne, JavaScript lit le localStorage et affiche toutes ses commandes avec leur statut — "En attente" si le paiement n'a pas encore été effectué, "Payé" si le paiement a été confirmé. J'ai conscience que cette méthode ne vérifie pas réellement le paiement côté serveur — c'est la limite de ce que je peux faire à mon niveau. Rayan doit donc vérifier lui-même sur son compte PayPal que le paiement est bien arrivé avant de préparer la commande. C'était la solution la plus simple et la plus propre que j'ai pu trouver avec mes compétences actuelles. Ensuite mise en ligne sur GitHub Pages et tests sur différents navigateurs.</p>
-              <div class="tags"><span class="tag">PayPal</span><span class="tag">URLSearchParams</span><span class="tag">JavaScript</span><span class="tag">Mail</span><span class="tag">Mes commandes</span><span class="tag">Mise en ligne</span></div>
+              <h4>Paiement PayPal, page confirmation & mise en ligne</h4>
+              <p>Quand le client clique sur "Payer", un lien le redirige vers PayPal avec le montant pré-rempli. Initialement j'avais prévu que PayPal redirige automatiquement le client vers ma page confirmation.html après le paiement — cela nécessite de configurer une URL de retour dans les paramètres PayPal, fonctionnalité réservée aux comptes Business. J'ai tenté de convertir mon compte en compte Professionnel mais cela demandait des informations fiscales (numéro de TVA, identifiant fiscal) que je ne possède pas en tant qu'étudiant. J'ai donc opté pour une solution alternative : après le paiement PayPal, un message sur la page commande invite le client à cliquer sur un lien "Confirmer ma commande" qui le redirige vers confirmation.html. Sur cette page, JavaScript lit le localStorage, passe le statut à "payé", vide le panier et affiche le récapitulatif complet. Rayan doit vérifier lui-même sur son PayPal que le paiement est bien arrivé avant de préparer la commande. Ensuite mise en ligne sur GitHub Pages et tests.</p>
+              <div class="tags"><span class="tag">PayPal</span><span class="tag">localStorage</span><span class="tag">JavaScript</span><span class="tag">Confirmation</span><span class="tag">Mise en ligne</span></div>
             </div>
           </div>
         </div>
@@ -373,36 +373,100 @@
             </div>
           </div>
 
-          <div class="livrable pending">
+          <div class="livrable">
             <div class="livrable-header">
               <h4>Site HTML/CSS — Accueil, Vêtements & Pages produit</h4>
               <span class="badge">Semaine 2 · 19–23 mai</span>
             </div>
-            <p>Pages Accueil et Vêtements développées en HTML/CSS fidèles à la maquette V2. Une page de détail par produit avec photo, description et prix. Lien depuis chaque carte produit vers sa page dédiée.</p>
+            <p>Pages Accueil et Vêtements développées en HTML/CSS fidèles à la maquette V2. Une page de détail par produit avec photo, description, sélection de taille et bouton panier.</p>
+            <div class="maquette-tabs">
+              <button class="maquette-tab active" onclick="showLiv2('accueil', this)">Accueil</button>
+              <button class="maquette-tab" onclick="showLiv2('vetements', this)">Vêtements</button>
+              <button class="maquette-tab" onclick="showLiv2('produit', this)">Page produit</button>
+            </div>
+            <div class="maquette-viewer">
+              <div class="maquette-frame active" id="liv2-accueil">
+                <img src="viclothes_accueil_v2.svg" alt="Page Accueil">
+              </div>
+              <div class="maquette-frame" id="liv2-vetements">
+                <img src="viclothes_vetements_v2.svg" alt="Page Vêtements">
+              </div>
+              <div class="maquette-frame" id="liv2-produit">
+                <img src="livrable-site-produit.svg" alt="Page Produit">
+              </div>
+            </div>
           </div>
 
-          <div class="livrable pending">
+          <div class="livrable">
             <div class="livrable-header">
               <h4>Pages Contact & À propos + Panier JavaScript</h4>
               <span class="badge">Semaine 3 · 26–30 mai</span>
             </div>
             <p>Pages Contact et À propos intégrées en HTML/CSS. Panier géré via localStorage : les articles ajoutés sont conservés en mémoire dans le navigateur même en changeant de page.</p>
+            <div class="maquette-tabs">
+              <button class="maquette-tab active" onclick="showLiv3('contact', this)">1. Contact</button>
+              <button class="maquette-tab" onclick="showLiv3('apropos', this)">2. À propos</button>
+              <button class="maquette-tab" onclick="showLiv3('panier', this)">3. Panier</button>
+            </div>
+            <div class="maquette-viewer">
+              <div class="maquette-frame active" id="liv3-contact">
+                <img src="viclothes_contact_v2.svg" alt="Page Contact">
+              </div>
+              <div class="maquette-frame" id="liv3-apropos">
+                <img src="viclothes_apropos_v2.svg" alt="Page À propos">
+              </div>
+              <div class="maquette-frame" id="liv3-panier">
+                <img src="livrable-site-panier.svg" alt="Page Panier">
+              </div>
+            </div>
           </div>
 
-          <div class="livrable pending">
+          <div class="livrable">
             <div class="livrable-header">
               <h4>Recherche JavaScript + Formulaire Formspree + Page commande</h4>
               <span class="badge">Semaine 4 · 2–6 juin</span>
             </div>
-            <p>Barre de recherche avec filtrage JavaScript. Formulaire de contact via Formspree (initialement prévu en PHP, adapté car GitHub Pages ne supporte pas PHP). Page commande avec envoi mail à Rayan via Formspree, sauvegarde en localStorage avec statut "en_attente".</p>
+            <p>Barre de recherche avec filtrage JavaScript. Formulaire de contact via Formspree (initialement prévu en PHP). Page commande avec récapitulatif du panier et envoi mail à Rayan.</p>
+            <div class="maquette-tabs">
+              <button class="maquette-tab active" onclick="showLiv4('formulaire', this)">Formulaire reçu</button>
+              <button class="maquette-tab" onclick="showLiv4('commande', this)">Page commande</button>
+              <button class="maquette-tab" onclick="showLiv4('mailcommande', this)">Mail commande</button>
+            </div>
+            <div class="maquette-viewer">
+              <div class="maquette-frame active" id="liv4-formulaire">
+                <img src="livrable-contact-formspree.svg" alt="Mail contact reçu">
+              </div>
+              <div class="maquette-frame" id="liv4-commande">
+                <img src="livrable-site-commande.svg" alt="Page commande">
+              </div>
+              <div class="maquette-frame" id="liv4-mailcommande">
+                <img src="livrable-commande-formspree.svg" alt="Mail commande reçu">
+              </div>
+            </div>
           </div>
 
-          <div class="livrable pending">
+          <div class="livrable">
             <div class="livrable-header">
-              <h4>Paiement PayPal + Page récapitulatif + Page mes commandes + Mise en ligne</h4>
+              <h4>Paiement PayPal + Page confirmation + Mise en ligne</h4>
               <span class="badge">Semaine 5 · 9–13 juin</span>
             </div>
-            <p>Bouton PayPal avec montant pré-rempli et redirection vers confirmation.html. JavaScript lit l'URL au retour de PayPal : si statut=success, la commande passe à "payé" dans le localStorage et un second mail "Commande confirmée" est envoyé à Rayan. Page "Mes commandes" affichant l'historique avec les statuts "En attente" ou "Payé". Rayan doit vérifier lui-même le paiement sur son PayPal. Mise en ligne et tests finaux.</p>
+            <p>Bouton PayPal avec montant pré-rempli. Après paiement, le client clique sur "Confirmer ma commande" → page confirmation qui passe le statut à "payé" en localStorage et affiche le récapitulatif. Rayan vérifie lui-même sur son PayPal. Mise en ligne et tests finaux.</p>
+            <div class="maquette-tabs">
+              <button class="maquette-tab active" onclick="showLiv5('paypal', this)">1. Page PayPal</button>
+              <button class="maquette-tab" onclick="showLiv5('confirmation', this)">2. Page confirmation</button>
+              <button class="maquette-tab" onclick="showLiv5('statut', this)">3. Mail "Payé" reçu</button>
+            </div>
+            <div class="maquette-viewer">
+              <div class="maquette-frame active" id="liv5-paypal">
+                <img src="livrable-site-paypal.svg" alt="Page PayPal">
+              </div>
+              <div class="maquette-frame" id="liv5-confirmation">
+                <img src="livrable-site-confirmation.svg" alt="Page confirmation">
+              </div>
+              <div class="maquette-frame" id="liv5-statut">
+                <img src="livrable-site-statut-paye.svg" alt="Statut commande payé">
+              </div>
+            </div>
           </div>
 
           <div class="livrable pending">
@@ -466,6 +530,30 @@
       document.querySelectorAll('#maq2-accueil, #maq2-vetements, #maq2-contact, #maq2-apropos').forEach(f => f.classList.remove('active'));
       el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
       document.getElementById('maq2-' + page).classList.add('active');
+      el.classList.add('active');
+    }
+    function showLiv2(page, el) {
+      document.querySelectorAll('#liv2-accueil, #liv2-vetements, #liv2-produit').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('liv2-' + page).classList.add('active');
+      el.classList.add('active');
+    }
+    function showLiv3(page, el) {
+      document.querySelectorAll('#liv3-contact, #liv3-apropos, #liv3-panier').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('liv3-' + page).classList.add('active');
+      el.classList.add('active');
+    }
+    function showLiv5(page, el) {
+      document.querySelectorAll('#liv5-paypal, #liv5-confirmation, #liv5-statut').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('liv5-' + page).classList.add('active');
+      el.classList.add('active');
+    }
+    function showLiv4(page, el) {
+      document.querySelectorAll('#liv4-formulaire, #liv4-commande, #liv4-mailcommande').forEach(f => f.classList.remove('active'));
+      el.closest('.maquette-tabs').querySelectorAll('.maquette-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('liv4-' + page).classList.add('active');
       el.classList.add('active');
     }
   </script>
