@@ -277,9 +277,9 @@
           <div class="journal-item">
             <div class="journal-day">2–6 juin</div>
             <div class="journal-body">
-              <h4>Recherche JavaScript, formulaire PHP & page commande</h4>
-              <p>J'ai intégré du JavaScript dans la page Vêtements pour filtrer les produits en temps réel selon ce que l'utilisateur tape, sans recharger la page. Pour la commande, le client remplit un formulaire avec ses coordonnées et son adresse de livraison. Quand il valide, le PHP envoie immédiatement un premier mail à Rayan LEPORI avec le récapitulatif complet : articles, prix total, adresse — mais avec la mention "Non payé" pour lui signaler que la commande est en attente de paiement. La commande est aussi sauvegardée dans le localStorage avec le statut "en_attente" avant que le client soit redirigé vers PayPal.</p>
-              <div class="tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">Recherche</span><span class="tag">Commande</span><span class="tag">Mail</span></div>
+              <h4>Recherche JavaScript, formulaire de contact & page commande</h4>
+              <p>J'ai intégré du JavaScript dans la page Vêtements pour filtrer les produits en temps réel selon ce que l'utilisateur tape, sans recharger la page. Pour le formulaire de contact, j'avais initialement prévu de le traiter en PHP — mais GitHub Pages ne supporte pas PHP car il ne fait que du HTML/CSS/JavaScript. J'ai donc cherché une alternative simple et j'ai trouvé Formspree : un service gratuit qui reçoit les données du formulaire et les envoie directement par mail à Rayan LEPORI sans aucun code serveur. Il suffit de changer l'attribut action du formulaire avec l'URL fournie par Formspree. Pour la commande, le client remplit un formulaire avec ses coordonnées et son adresse de livraison. À la validation, Formspree envoie un mail à Rayan LEPORI avec le récapitulatif marqué "Non payé". La commande est aussi sauvegardée en localStorage avec le statut "en_attente" avant que le client soit redirigé vers PayPal.</p>
+              <div class="tags"><span class="tag">JavaScript</span><span class="tag">Formspree</span><span class="tag">Recherche</span><span class="tag">Commande</span><span class="tag">Mail</span></div>
             </div>
           </div>
         </div>
@@ -375,34 +375,34 @@
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Site HTML/CSS — Accueil & Vêtements</h4>
+              <h4>Site HTML/CSS — Accueil, Vêtements & Pages produit</h4>
               <span class="badge">Semaine 2 · 19–23 mai</span>
             </div>
-            <p>Pages Accueil et Vêtements développées en HTML/CSS. Mise en place des pages de détail produit.</p>
+            <p>Pages Accueil et Vêtements développées en HTML/CSS fidèles à la maquette V2. Une page de détail par produit avec photo, description et prix. Lien depuis chaque carte produit vers sa page dédiée.</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Panier JavaScript + Pages Contact & À propos</h4>
+              <h4>Pages Contact & À propos + Panier JavaScript</h4>
               <span class="badge">Semaine 3 · 26–30 mai</span>
             </div>
-            <p>Panier géré via localStorage en JavaScript. Pages Contact et À propos intégrées.</p>
+            <p>Pages Contact et À propos intégrées en HTML/CSS. Panier géré via localStorage : les articles ajoutés sont conservés en mémoire dans le navigateur même en changeant de page.</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Formulaire PHP + Recherche JavaScript + Commande + Paiement PayPal</h4>
+              <h4>Recherche JavaScript + Formulaire Formspree + Page commande</h4>
               <span class="badge">Semaine 4 · 2–6 juin</span>
             </div>
-            <p>Formulaire de contact traité en PHP. Barre de recherche avec filtrage JavaScript en temps réel. Page commande avec envoi mail PHP. Bouton de paiement redirigeant vers PayPal avec montant pré-rempli.</p>
+            <p>Barre de recherche avec filtrage JavaScript. Formulaire de contact via Formspree (initialement prévu en PHP, adapté car GitHub Pages ne supporte pas PHP). Page commande avec envoi mail à Rayan via Formspree, sauvegarde en localStorage avec statut "en_attente".</p>
           </div>
 
           <div class="livrable pending">
             <div class="livrable-header">
-              <h4>Paiement PayPal + Page confirmation + Mise en ligne</h4>
+              <h4>Paiement PayPal + Page récapitulatif + Page mes commandes + Mise en ligne</h4>
               <span class="badge">Semaine 5 · 9–13 juin</span>
             </div>
-            <p>Bouton PayPal avec redirection vers une page confirmation.html. Statut commande mis à jour via JavaScript selon l'URL de retour. Déploiement et tests finaux.</p>
+            <p>Bouton PayPal avec montant pré-rempli et redirection vers confirmation.html. JavaScript lit l'URL au retour de PayPal : si statut=success, la commande passe à "payé" dans le localStorage et un second mail "Commande confirmée" est envoyé à Rayan. Page "Mes commandes" affichant l'historique avec les statuts "En attente" ou "Payé". Rayan doit vérifier lui-même le paiement sur son PayPal. Mise en ligne et tests finaux.</p>
           </div>
 
           <div class="livrable pending">
@@ -410,7 +410,7 @@
               <h4>Bilan & préparation oral</h4>
               <span class="badge">Semaine 6 · 16–19 juin</span>
             </div>
-            <p>Bilan du stage, mise à jour du portfolio, préparation de l'oral du 22 juin.</p>
+            <p>Bilan du stage, mise à jour du portfolio avec tous les livrables finalisés, préparation de l'oral du 22 juin.</p>
           </div>
 
         </div>
