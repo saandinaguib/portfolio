@@ -78,6 +78,14 @@
     .footer-bottom { background: #0e0e0e; border-top: 1px solid #1e1e1e; padding: 14px 32px; display: flex; justify-content: space-between; }
     .footer-bottom p { font-size: 11px; color: #333; }
 
+
+    .code-bloc { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 6px; padding: 14px 16px; margin-top: 12px; overflow-x: auto; }
+    .code-bloc pre { font-family: monospace; font-size: 11px; color: #cccccc; line-height: 1.7; white-space: pre; margin: 0; }
+    .code-titre { font-size: 10px; color: #555; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .code-comment { color: #555; }
+    .code-key { color: #88aaff; }
+    .code-val { color: #88ffaa; }
+    .code-str { color: #ffcc88; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
   </style>
@@ -252,6 +260,16 @@
               <h4>Développement HTML/CSS — Pages Accueil & Vêtements</h4>
               <p>Mise en place de la structure du site en HTML/CSS à partir de la maquette V2 : navbar, bannière, footer communs aux deux pages. J'ai développé la page Accueil avec la section meilleures ventes et la page Vêtements avec la grille de produits. J'ai aussi réfléchi à comment rendre le site plus complet : j'ai ajouté un lien sur chaque carte produit qui ouvre une page dédiée avec la photo en grand, la description et le prix.</p>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Accueil</span><span class="tag">Vêtements</span><span class="tag">Page produit</span></div>
+              <div class="code-bloc">
+                <p class="code-titre">HTML — Carte produit avec lien vers la page dédiée</p>
+                <pre><span class="code-key">&lt;a</span> <span class="code-str">href="produit-pantalon-marine.html"</span> <span class="code-str">class="carte-produit"</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;img</span> <span class="code-str">src="img/img_pantalon_marine.jpg"</span> <span class="code-str">alt="Pantalon Marine"</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;div</span> <span class="code-str">class="info-produit"</span><span class="code-key">&gt;</span>
+    <span class="code-key">&lt;h3&gt;</span>Pantalon Marine Brodé<span class="code-key">&lt;/h3&gt;</span>
+    <span class="code-key">&lt;p&gt;</span>95,00 €<span class="code-key">&lt;/p&gt;</span>
+  <span class="code-key">&lt;/div&gt;</span>
+<span class="code-key">&lt;/a&gt;</span></pre>
+              </div>
             </div>
           </div>
         </div>
@@ -266,6 +284,21 @@
               <h4>Pages Contact & À propos + Panier JavaScript</h4>
               <p>Développement des pages Contact et À propos en HTML/CSS. Pour le panier, le problème était qu'on n'a pas de base de données. J'ai réfléchi et j'ai utilisé le localStorage : j'ai intégré du JavaScript qui, à chaque clic sur "Ajouter au panier", sauvegarde l'article dans la mémoire du navigateur. Comme ça, même en changeant de page, le panier garde les produits en mémoire jusqu'à la commande.</p>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Panier</span><span class="tag">localStorage</span></div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Sauvegarde du panier dans le navigateur</p>
+                <pre><span class="code-comment">// Ajouter un article au panier</span>
+<span class="code-key">function</span> ajouterAuPanier(nom, prix, image, taille) {
+  <span class="code-key">var</span> panier = localStorage.<span class="code-val">getItem</span>(<span class="code-str">'panier'</span>);
+  <span class="code-key">if</span> (panier == <span class="code-val">null</span>) {
+    panier = [];
+  } <span class="code-key">else</span> {
+    panier = JSON.<span class="code-val">parse</span>(panier);
+  }
+  panier[panier.length] = { nom, prix, image, taille };
+  localStorage.<span class="code-val">setItem</span>(<span class="code-str">'panier'</span>, JSON.<span class="code-val">stringify</span>(panier));
+  <span class="code-val">alert</span>(nom + <span class="code-str">' ajouté au panier !'</span>);
+}</pre>
+              </div>
             </div>
           </div>
         </div>
@@ -280,6 +313,26 @@
               <h4>Recherche JavaScript, formulaire de contact & page commande</h4>
               <p>J'ai intégré du JavaScript dans la page Vêtements pour filtrer les produits en temps réel selon ce que l'utilisateur tape, sans recharger la page. Pour le formulaire de contact, j'avais initialement prévu de le traiter en PHP — mais GitHub Pages ne supporte pas PHP car il ne fait que du HTML/CSS/JavaScript. J'ai donc cherché une alternative simple et j'ai trouvé Formspree : un service gratuit qui reçoit les données du formulaire et les envoie directement par mail à Rayan LEPORI sans aucun code serveur. Il suffit de changer l'attribut action du formulaire avec l'URL fournie par Formspree. Pour la commande, le client remplit un formulaire avec ses coordonnées et son adresse de livraison. À la validation, Formspree envoie un mail à Rayan LEPORI avec le récapitulatif marqué "Non payé". La commande est aussi sauvegardée en localStorage avec le statut "en_attente" avant que le client soit redirigé vers PayPal.</p>
               <div class="tags"><span class="tag">JavaScript</span><span class="tag">Formspree</span><span class="tag">Recherche</span><span class="tag">Commande</span><span class="tag">Mail</span></div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Filtrage des produits en temps réel</p>
+                <pre><span class="code-key">function</span> filtrer() {
+  <span class="code-key">var</span> texte = document.<span class="code-val">getElementById</span>(<span class="code-str">'recherche'</span>).value;
+  <span class="code-key">if</span> (<span class="code-str">'pantalon marine'</span>.<span class="code-val">indexOf</span>(texte) != -<span class="code-val">1</span>) {
+    document.<span class="code-val">getElementById</span>(<span class="code-str">'carte1'</span>).style.display = <span class="code-str">'block'</span>;
+  } <span class="code-key">else</span> {
+    document.<span class="code-val">getElementById</span>(<span class="code-str">'carte1'</span>).style.display = <span class="code-str">'none'</span>;
+  }
+}</pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">HTML — Envoi du formulaire via Formspree</p>
+                <pre><span class="code-key">&lt;form</span> <span class="code-str">action="https://formspree.io/f/mdavqwwj"</span> <span class="code-str">method="POST"</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;input</span> <span class="code-str">type="hidden"</span> <span class="code-str">name="type"</span> <span class="code-str">value="COMMANDE — NON PAYÉ"</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;input</span> <span class="code-str">type="hidden"</span> <span class="code-str">name="articles"</span> <span class="code-str">id="champ-articles"</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;input</span> <span class="code-str">type="text"</span> <span class="code-str">name="prenom"</span> <span class="code-str">required</span><span class="code-key">&gt;</span>
+  <span class="code-key">&lt;button</span> <span class="code-str">type="submit"</span><span class="code-key">&gt;</span>Valider<span class="code-key">&lt;/button&gt;</span>
+<span class="code-key">&lt;/form&gt;</span></pre>
+              </div>
             </div>
           </div>
         </div>
@@ -294,6 +347,29 @@
               <h4>Paiement PayPal, page confirmation & mise en ligne</h4>
               <p>Quand le client clique sur "Payer", un lien le redirige vers PayPal avec le montant pré-rempli. Initialement j'avais prévu que PayPal redirige automatiquement le client vers ma page confirmation.html après le paiement — cela nécessite de configurer une URL de retour dans les paramètres PayPal, fonctionnalité réservée aux comptes Business. J'ai tenté de convertir mon compte en compte Professionnel mais cela demandait des informations fiscales (numéro de TVA, identifiant fiscal) que je ne possède pas en tant qu'étudiant. J'ai donc opté pour une solution alternative : après le paiement PayPal, un message sur la page commande invite le client à cliquer sur un lien "Confirmer ma commande" qui le redirige vers confirmation.html. Sur cette page, JavaScript lit le localStorage, passe le statut à "payé", vide le panier et affiche le récapitulatif complet. Rayan doit vérifier lui-même sur son PayPal que le paiement est bien arrivé avant de préparer la commande. Ensuite mise en ligne sur GitHub Pages et tests.</p>
               <div class="tags"><span class="tag">PayPal</span><span class="tag">localStorage</span><span class="tag">JavaScript</span><span class="tag">Confirmation</span><span class="tag">Mise en ligne</span></div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Lien PayPal avec montant dynamique</p>
+                <pre><span class="code-comment">// Calcul du total depuis le panier</span>
+<span class="code-key">var</span> total = <span class="code-val">0</span>;
+<span class="code-key">for</span> (i = <span class="code-val">0</span>; i &lt; panier.length; i = i + <span class="code-val">1</span>) {
+  total = total + <span class="code-val">parseFloat</span>(panier[i].prix);
+}
+<span class="code-comment">// Lien PayPal avec montant pré-rempli</span>
+document.<span class="code-val">getElementById</span>(<span class="code-str">'btn-paypal'</span>).href =
+  <span class="code-str">'https://paypal.me/NaguibSaandi/'</span> + total + <span class="code-str">'EUR'</span>;</pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Confirmation du paiement en localStorage</p>
+                <pre><span class="code-comment">// Sur la page confirmation.html</span>
+localStorage.<span class="code-val">setItem</span>(<span class="code-str">'commande_statut'</span>, <span class="code-str">'paye'</span>);
+
+<span class="code-key">var</span> total = localStorage.<span class="code-val">getItem</span>(<span class="code-str">'commande_total'</span>);
+<span class="code-key">var</span> articles = localStorage.<span class="code-val">getItem</span>(<span class="code-str">'commande_articles'</span>);
+
+<span class="code-comment">// Afficher le récapitulatif au client</span>
+document.<span class="code-val">getElementById</span>(<span class="code-str">'recap'</span>).innerHTML =
+  <span class="code-str">'Total payé : '</span> + total + <span class="code-str">' €'</span>;</pre>
+              </div>
             </div>
           </div>
         </div>
