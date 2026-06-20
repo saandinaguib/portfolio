@@ -266,14 +266,37 @@
               <p>Mise en place de la structure du site en HTML/CSS à partir de la maquette V2 : navbar, bannière, footer communs aux deux pages. J'ai développé la page Accueil avec la section meilleures ventes et la page Vêtements avec la grille de produits. J'ai aussi réfléchi à comment rendre le site plus complet : j'ai ajouté un lien sur chaque carte produit qui ouvre une page dédiée avec la photo en grand, la description et le prix.</p>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Accueil</span><span class="tag">Vêtements</span><span class="tag">Page produit</span></div>
               <div class="code-bloc">
-                <p class="code-titre">HTML — Carte produit avec lien vers la page dédiée</p>
-                <pre><span class="code-key">&lt;a</span> <span class="code-str">href="produit-pantalon-marine.html"</span> <span class="code-str">class="carte-produit"</span><span class="code-key">&gt;</span>
+                <p class="code-titre">HTML — Carte produit cliquable qui mène vers la page dédiée</p>
+                <pre><span class="code-comment">// On utilise une balise &lt;a&gt; autour de toute la carte.
+// Cliquer n'importe où sur la carte redirige vers la page produit.</span>
+<span class="code-key">&lt;a</span> <span class="code-str">href="produit-pantalon-marine.html"</span> <span class="code-str">class="carte-produit"</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;img</span> <span class="code-str">src="img/img_pantalon_marine.jpg"</span> <span class="code-str">alt="Pantalon Marine"</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;div</span> <span class="code-str">class="info-produit"</span><span class="code-key">&gt;</span>
     <span class="code-key">&lt;h3&gt;</span>Pantalon Marine Brodé<span class="code-key">&lt;/h3&gt;</span>
     <span class="code-key">&lt;p&gt;</span>95,00 €<span class="code-key">&lt;/p&gt;</span>
   <span class="code-key">&lt;/div&gt;</span>
 <span class="code-key">&lt;/a&gt;</span></pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Comment on retient la taille choisie par le client</p>
+                <pre><span class="code-comment">// On stocke la taille dans une variable globale.
+// Quand le client clique sur "Ajouter au panier", on vérifie
+// qu'il a bien choisi une taille avant d'ajouter l'article.</span>
+<span class="code-key">var</span> taille = <span class="code-str">''</span>;  <span class="code-comment">// vide au départ</span>
+
+<span class="code-key">function</span> choisirTaille(bouton, t) {
+  taille = t;  <span class="code-comment">// on mémorise la taille cliquée</span>
+  bouton.style.background = <span class="code-str">'#111'</span>;  <span class="code-comment">// on noircit le bouton pour montrer la sélection</span>
+  bouton.style.color = <span class="code-str">'#fff'</span>;
+}
+
+<span class="code-key">function</span> ajouterArticle() {
+  <span class="code-key">if</span> (taille == <span class="code-str">''</span>) {
+    <span class="code-val">alert</span>(<span class="code-str">'Veuillez choisir une taille.'</span>);
+    <span class="code-key">return</span>;  <span class="code-comment">// on arrête si pas de taille choisie</span>
+  }
+  ajouterAuPanier(<span class="code-str">'Pantalon Marine Brodé'</span>, <span class="code-str">'95'</span>, <span class="code-str">'img/...'</span>, taille);
+}</pre>
               </div>
             </div>
           </div>
@@ -290,19 +313,56 @@
               <p>Développement des pages Contact et À propos en HTML/CSS. Pour le panier, le problème était qu'on n'a pas de base de données. J'ai réfléchi et j'ai utilisé le localStorage : j'ai intégré du JavaScript qui, à chaque clic sur "Ajouter au panier", sauvegarde l'article dans la mémoire du navigateur. Comme ça, même en changeant de page, le panier garde les produits en mémoire jusqu'à la commande.</p>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Panier</span><span class="tag">localStorage</span></div>
               <div class="code-bloc">
-                <p class="code-titre">JavaScript — Sauvegarde du panier dans le navigateur</p>
-                <pre><span class="code-comment">// Ajouter un article au panier</span>
+                <p class="code-titre">JavaScript — Comment on sauvegarde un article dans le navigateur (localStorage)</p>
+                <pre><span class="code-comment">// Le localStorage c'est la mémoire du navigateur.
+// On convertit le tableau en texte avec JSON.stringify pour le stocker,
+// puis on le relit avec JSON.parse pour le retrouver.</span>
 <span class="code-key">function</span> ajouterAuPanier(nom, prix, image, taille) {
   <span class="code-key">var</span> panier = localStorage.<span class="code-val">getItem</span>(<span class="code-str">'panier'</span>);
   <span class="code-key">if</span> (panier == <span class="code-val">null</span>) {
-    panier = [];
+    panier = [];           <span class="code-comment">// panier vide = tableau vide</span>
   } <span class="code-key">else</span> {
-    panier = JSON.<span class="code-val">parse</span>(panier);
+    panier = JSON.<span class="code-val">parse</span>(panier);  <span class="code-comment">// on relit le panier existant</span>
   }
-  panier[panier.length] = { nom, prix, image, taille };
+  panier[panier.length] = { nom: nom, prix: prix, image: image, taille: taille };
   localStorage.<span class="code-val">setItem</span>(<span class="code-str">'panier'</span>, JSON.<span class="code-val">stringify</span>(panier));
   <span class="code-val">alert</span>(nom + <span class="code-str">' ajouté au panier !'</span>);
 }</pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Comment on vide le panier</p>
+                <pre><span class="code-comment">// removeItem supprime la clé "panier" du localStorage.
+// location.reload() recharge la page pour mettre à jour l'affichage.</span>
+<span class="code-key">function</span> viderPanier() {
+  localStorage.<span class="code-val">removeItem</span>(<span class="code-str">'panier'</span>);
+  <span class="code-val">alert</span>(<span class="code-str">'Panier vidé !'</span>);
+  location.<span class="code-val">reload</span>();
+}</pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Comment on affiche les articles du panier</p>
+                <pre><span class="code-comment">// On lit le panier, puis on construit le HTML ligne par ligne avec une boucle for.</span>
+<span class="code-key">var</span> panier = getPanier();
+<span class="code-key">var</span> contenu = <span class="code-str">''</span>;
+<span class="code-key">var</span> total = <span class="code-val">0</span>;
+<span class="code-key">var</span> i;
+
+<span class="code-key">for</span> (i = <span class="code-val">0</span>; i &lt; panier.length; i = i + <span class="code-val">1</span>) {
+  total = total + <span class="code-val">parseFloat</span>(panier[i].prix);
+  contenu = contenu + <span class="code-str">'&lt;p&gt;'</span> + panier[i].nom + <span class="code-str">' — '</span> + panier[i].prix + <span class="code-str">' €&lt;/p&gt;'</span>;
+}
+document.<span class="code-val">getElementById</span>(<span class="code-str">'articles-bloc'</span>).innerHTML = contenu;
+document.<span class="code-val">getElementById</span>(<span class="code-str">'total-prix'</span>).textContent = total + <span class="code-str">' €'</span>;</pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Pourquoi JSON.stringify et JSON.parse ?</p>
+                <pre><span class="code-comment">// Le localStorage ne peut stocker que du texte.
+// Notre panier est un tableau d'objets, donc on le convertit en texte
+// avec JSON.stringify avant de le sauvegarder,
+// et on le reconvertit en tableau avec JSON.parse quand on le relit.</span>
+
+localStorage.<span class="code-val">setItem</span>(<span class="code-str">'panier'</span>, JSON.<span class="code-val">stringify</span>(panier));  <span class="code-comment">// tableau → texte</span>
+<span class="code-key">var</span> panier = JSON.<span class="code-val">parse</span>(localStorage.<span class="code-val">getItem</span>(<span class="code-str">'panier'</span>));  <span class="code-comment">// texte → tableau</span></pre>
               </div>
             </div>
           </div>
@@ -330,13 +390,27 @@
 }</pre>
               </div>
               <div class="code-bloc">
-                <p class="code-titre">HTML — Envoi du formulaire via Formspree</p>
-                <pre><span class="code-key">&lt;form</span> <span class="code-str">action="https://formspree.io/f/mdavqwwj"</span> <span class="code-str">method="POST"</span><span class="code-key">&gt;</span>
+                <p class="code-titre">HTML — Formulaire envoyé via Formspree avec champs cachés</p>
+                <pre><span class="code-comment">// action="..." = l'URL Formspree qui reçoit les données et envoie le mail à Rayan.
+// Les champs type="hidden" sont invisibles pour le client mais
+// envoyés dans le mail — ici la liste des articles et le statut "NON PAYÉ".</span>
+<span class="code-key">&lt;form</span> <span class="code-str">action="https://formspree.io/f/mdavqwwj"</span> <span class="code-str">method="POST"</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;input</span> <span class="code-str">type="hidden"</span> <span class="code-str">name="type"</span> <span class="code-str">value="COMMANDE — NON PAYÉ"</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;input</span> <span class="code-str">type="hidden"</span> <span class="code-str">name="articles"</span> <span class="code-str">id="champ-articles"</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;input</span> <span class="code-str">type="text"</span> <span class="code-str">name="prenom"</span> <span class="code-str">required</span><span class="code-key">&gt;</span>
   <span class="code-key">&lt;button</span> <span class="code-str">type="submit"</span><span class="code-key">&gt;</span>Valider<span class="code-key">&lt;/button&gt;</span>
 <span class="code-key">&lt;/form&gt;</span></pre>
+              </div>
+              <div class="code-bloc">
+                <p class="code-titre">JavaScript — Comment on remplit le champ caché articles avant envoi</p>
+                <pre><span class="code-comment">// Avant que le formulaire parte, on remplit le champ caché "articles"
+// avec la liste des produits du panier lue depuis le localStorage.</span>
+<span class="code-key">var</span> listeArticles = <span class="code-str">''</span>;
+<span class="code-key">for</span> (i = <span class="code-val">0</span>; i &lt; panier.length; i = i + <span class="code-val">1</span>) {
+  listeArticles = listeArticles + panier[i].nom +
+    <span class="code-str">' (Taille '</span> + panier[i].taille + <span class="code-str">') — '</span> + panier[i].prix + <span class="code-str">' €  |  '</span>;
+}
+document.<span class="code-val">getElementById</span>(<span class="code-str">'champ-articles'</span>).value = listeArticles;</pre>
               </div>
             </div>
           </div>
